@@ -70,6 +70,7 @@ public class CarHashSet implements CarSet ,Iterable<Car>{
             Entry existedElement = dst[position];
             while (true) {
                 if (existedElement.value.equals(car)) {
+                    existedElement.value = car;
                     return false;
                 } else if (existedElement.next == null) {
                     existedElement.next = new Entry(car, null);
@@ -134,7 +135,7 @@ public class CarHashSet implements CarSet ,Iterable<Car>{
     }
 
     private static class Entry {
-        private final Car value;
+        private Car value;
         private Entry next;
 
         public Entry(Car value, Entry next) {
